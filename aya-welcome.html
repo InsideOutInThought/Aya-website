@@ -242,6 +242,11 @@
   footer .reach .ph{color:var(--gold);}
   footer .reach .em{color:rgba(255,255,255,.85);font-weight:600;}
   footer .reach .sep{color:rgba(255,255,255,.4);}
+  footer .reach{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px 28px;}
+  footer .social{display:flex;align-items:baseline;gap:0;}
+  footer .social .lbl{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-right:12px;}
+  footer .social a{color:rgba(255,255,255,.85);font-weight:600;}
+  footer .social a:hover,footer .reach .em:hover{color:var(--gold);}
   footer .crisis{margin:18px 0 0;font-size:.86rem;color:rgba(255,255,255,.72);}
   footer .crisis a{color:#fff;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);}
   footer .fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:26px;font-size:.78rem;color:rgba(255,255,255,.58);}
@@ -290,6 +295,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+<meta name="apple-mobile-web-app-title" content="Aya">
 <meta name="theme-color" content="#274E44">
 <meta name="description" content="Thank you from Aya Recovery &amp; Wellness.">
 <link rel="canonical" href="https://ayarecoverywellness.org/aya-welcome">
@@ -361,9 +367,17 @@
       <p class="ftag">Heal. Grow. Return. <span class="g">Together.</span></p>
     </div>
     <div class="reach">
-      <a class="ph" href="tel:+19043723723">(904) 372-3723</a>
-      <span class="sep">&nbsp;&middot;&nbsp;</span>
-      <a class="em" href="mailto:info@ayarecoverywellness.org">info@ayarecoverywellness.org</a>
+      <span class="contact">
+        <a class="ph" href="tel:+19043723723">(904) 372-3723</a>
+        <span class="sep">&nbsp;&middot;&nbsp;</span>
+        <a class="em" href="mailto:info@ayarecoverywellness.org">info@ayarecoverywellness.org</a>
+      </span>
+      <span class="social">
+        <span class="lbl">Follow along</span>
+        <a href="https://www.facebook.com/ayarecoverywellness" target="_blank" rel="noopener">Facebook</a>
+        <span class="sep">&nbsp;&middot;&nbsp;</span>
+        <a href="https://www.instagram.com/ayarecoverywellness/" target="_blank" rel="noopener">Instagram</a>
+      </span>
     </div>
     <p class="crisis">Need help right now? Call or text <a href="tel:988">988</a>, or call <a href="tel:911">911</a> in an emergency. <a href="/#help">More places to turn</a></p>
     <div class="fine">
