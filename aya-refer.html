@@ -155,6 +155,18 @@
   .fld textarea{min-height:130px;resize:vertical;}
   .form .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .form .btn{justify-self:start;}
+  fieldset.fld{border:0;margin:0;padding:0;min-width:0;}
+  .fld legend{padding:0;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--jade-deep);margin-bottom:6px;}
+  .fld legend .opt{text-transform:none;letter-spacing:0;font-weight:400;color:#5e6b66;}
+  .picks{display:flex;flex-wrap:wrap;gap:10px;}
+  .fld .picks label{display:inline-flex;align-items:center;gap:9px;margin:0;padding:11px 14px;border:1px solid var(--line);border-radius:3px;background:#fff;font-size:1rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--charcoal);cursor:pointer;line-height:1.2;}
+  .fld .picks input{width:18px;height:18px;margin:0;padding:0;accent-color:var(--jade-deep);flex:none;}
+  .fld .picks label:has(input:checked){border-color:var(--jade);background:var(--sage);}
+  .fld .picks label:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:1px;}
+  .fld select{appearance:none;-webkit-appearance:none;padding-right:40px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23274E44' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center;}
+  .fld select:invalid{color:#5e6b66;}
+  .fld select option{color:var(--charcoal);}
+  .captcha{min-height:78px;}
   .hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden;}
   .emails{display:flex;flex-direction:column;gap:14px;margin:6px 0 6px;}
   .emails a{font-weight:700;color:var(--jade);text-decoration:none;border-bottom:1px solid rgba(74,140,122,.4);padding-bottom:2px;align-self:flex-start;}
@@ -427,7 +439,7 @@
         <p class="eyebrow dark">Start the conversation</p>
         <h2 style="font-size:clamp(1.9rem,4vw,2.6rem);color:var(--jade-deep);">Get Aya on your referral list</h2>
         <p class="muted" style="margin-top:1rem;">Tell us about your organization and the women you serve, and we'll follow up to set up a referral pathway ahead of opening. Please leave out any woman's name or health information. When you have someone in mind, call us and we'll take it from there.</p>
-        <form class="form" name="referral-partner" method="POST" action="/aya-thanks" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="form" name="referral-partner" method="POST" action="/aya-thanks" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
           <input type="hidden" name="form-name" value="referral-partner">
           <input type="hidden" name="subject" data-remove-prefix value="Aya &middot; Referral partner inquiry">
           <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
@@ -435,12 +447,35 @@
             <div class="fld"><label for="rn">Your name</label><input id="rn" name="name" type="text" autocomplete="name" required></div>
             <div class="fld"><label for="rr">Your role <span class="opt">(optional)</span></label><input id="rr" name="role" type="text" autocomplete="organization-title" placeholder="e.g. discharge planner"></div>
           </div>
-          <div class="fld"><label for="ro">Organization</label><input id="ro" name="organization" type="text" autocomplete="organization" required></div>
+          <div class="row2">
+            <div class="fld"><label for="ro">Organization</label><input id="ro" name="organization" type="text" autocomplete="organization" required></div>
+            <div class="fld"><label for="rt">Type of organization</label><select id="rt" name="org-type" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Treatment center or detox</option>
+              <option>Hospital or health system</option>
+              <option>Mental health or counseling</option>
+              <option>Court, probation, or reentry</option>
+              <option>Domestic violence or trafficking services</option>
+              <option>Shelter or housing services</option>
+              <option>Community or social services</option>
+              <option>Veterans services</option>
+              <option>Something else</option>
+            </select></div>
+          </div>
+          <fieldset class="fld"><legend>Counties you serve <span class="opt">(check all that apply)</span></legend>
+            <div class="picks">
+              <label><input type="checkbox" name="counties[]" value="Duval">Duval</label>
+              <label><input type="checkbox" name="counties[]" value="Clay">Clay</label>
+              <label><input type="checkbox" name="counties[]" value="St. Johns">St. Johns</label>
+              <label><input type="checkbox" name="counties[]" value="Somewhere else">Somewhere else</label>
+            </div>
+          </fieldset>
           <div class="row2">
             <div class="fld"><label for="re">Email</label><input id="re" name="email" type="email" autocomplete="email" required></div>
             <div class="fld"><label for="rp">Phone <span class="opt">(optional)</span></label><input id="rp" name="phone" type="tel" autocomplete="tel"></div>
           </div>
-          <div class="fld"><label for="rm">Anything we should know? <span class="opt">(optional)</span></label><textarea id="rm" name="message" placeholder="The counties you serve, the women you usually place, good times to reach you"></textarea></div>
+          <div class="fld"><label for="rm">Anything we should know? <span class="opt">(optional)</span></label><textarea id="rm" name="message" placeholder="The women you usually work with, good times to reach you"></textarea></div>
+          <div class="captcha" data-netlify-recaptcha="true"></div>
           <button class="btn btn-gold" type="submit">Send to our team</button>
         </form>
       </div>
