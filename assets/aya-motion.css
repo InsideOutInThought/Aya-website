@@ -1,7 +1,8 @@
 /* Aya motion layer: shared by every page. Pairs with aya-motion.js. */
 
 @keyframes ayaBreathe{from{transform:translate(-50%,-50%) scale(1);filter:brightness(1)}to{transform:translate(-50%,-50%) scale(1.08);filter:brightness(1.25)}}
-@keyframes ayaRays{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes ayaSheenLoop{0%{background-position:120% 0}45%,100%{background-position:-20% 0}}
+@keyframes ayaLogoSheen{0%{background-position:130% 0}40%,100%{background-position:-30% 0}}
 @keyframes ayaDraw{to{stroke-dashoffset:0}}
 @keyframes ayaTurn{to{transform:rotate(360deg)}}
 
@@ -9,16 +10,23 @@
 .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");}
 .motes{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;animation:ayaFade 2.4s ease 1.2s both;}
 
-/* home hero: warmer glow, slow rays, the bridge */
+/* home hero: warmer glow, shimmer, the bridge scene */
 .hero.home{padding-bottom:clamp(150px,18vw,262px);}
 .hero.home .halo{width:min(900px,160%);height:min(900px,160%);background:radial-gradient(ellipse 30% 26% at 50% 52%,rgba(250,240,214,.55) 0%,rgba(250,240,214,.22) 48%,rgba(250,240,214,0) 100%),radial-gradient(ellipse 50% 46% at 50% 48%,rgba(246,209,121,.3) 0%,rgba(201,162,39,.12) 48%,rgba(201,162,39,0) 100%);animation:ayaFade 1.6s ease .1s both, ayaBreathe 8s ease-in-out 1.8s infinite alternate;}
-.hero.home .rays{position:absolute;left:50%;top:34%;width:min(1300px,230%);aspect-ratio:1;z-index:1;pointer-events:none;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(246,209,121,.075) 0deg 2.5deg,rgba(246,209,121,0) 2.5deg 18deg);filter:blur(1.5px);-webkit-mask-image:radial-gradient(circle,rgba(0,0,0,0) 15%,#000 24%,rgba(0,0,0,0) 62%);mask-image:radial-gradient(circle,rgba(0,0,0,0) 15%,#000 24%,rgba(0,0,0,0) 62%);transform:translate(-50%,-50%);opacity:0;animation:ayaRays 200s linear infinite, ayaFade 3s ease 1.2s forwards;}
 .hero.home .city{text-shadow:0 0 46px rgba(246,209,121,.28);}
-.bridge{position:absolute;left:50%;bottom:0;width:min(1400px,100%);height:auto;transform:translateX(-50%);z-index:1;pointer-events:none;overflow:visible;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 16%,#000 84%,rgba(0,0,0,0));mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 16%,#000 84%,rgba(0,0,0,0));}
+.hero.home .opening{animation:ayaRise .8s ease 2.2s both, ayaSheenLoop 5.5s ease 2.8s infinite;}
+.hero.home h1{position:relative;}
+.hero.home h1::after{content:"";position:absolute;inset:0;pointer-events:none;-webkit-mask:url(aya-logo-hero.png) center/100% 100% no-repeat;mask:url(aya-logo-hero.png) center/100% 100% no-repeat;background-image:linear-gradient(105deg,rgba(255,255,255,0) 42%,rgba(255,252,235,.85) 50%,rgba(255,255,255,0) 58%);background-size:300% 100%;background-position:130% 0;animation:ayaLogoSheen 6.5s ease-in-out 3.6s infinite;}
+.bridge{position:absolute;left:50%;bottom:0;width:min(1400px,100%);height:auto;transform:translateX(-50%);z-index:1;pointer-events:none;overflow:visible;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 3%,#000 97%,rgba(0,0,0,0));mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 3%,#000 97%,rgba(0,0,0,0));}
 .bridge path{fill:none;stroke:var(--gold-light);stroke-width:1.5;stroke-linecap:round;opacity:.62;stroke-dasharray:1;stroke-dashoffset:1;animation:ayaDraw 1.7s var(--ease-ceremony) forwards;animation-delay:calc(2.7s + var(--d,0s));}
 .bridge path.tower{stroke-width:2.2;opacity:.85;}
 .bridge path.deck{stroke-width:2;opacity:.85;}
 .bridge path.cable{stroke-width:1.1;opacity:.5;}
+.bridge path.fill{stroke:none;fill:var(--jade-deeper);opacity:0;stroke-dasharray:none;animation:ayaFade 1.4s ease forwards;animation-delay:calc(2.7s + var(--d,0s));}
+.bridge path.limb{stroke-width:1.7;opacity:.8;}
+.bridge path.canopy{stroke-width:1.8;opacity:.9;}
+.bridge path.moss{stroke-width:1;opacity:.45;}
+.bridge path.bird{stroke-width:1.6;opacity:.85;}
 .bridge circle{fill:var(--gold-light);opacity:0;animation:ayaFade 1s ease 4.6s forwards;}
 
 /* buttons: gold foil and sheen */
@@ -60,11 +68,11 @@
 main{position:relative;}
 .rootline{position:absolute;left:0;top:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible;}
 .rootline path{fill:none;stroke:var(--gold);stroke-linecap:round;stroke-linejoin:round;}
-.rootline .trunk{stroke-width:2.6;}
-.rootline .trunk.thin{stroke-width:1.4;opacity:.8;}
-.rootline .twig{stroke-width:1.5;opacity:0;transition:opacity .5s ease, stroke-dashoffset 1.3s var(--ease-ceremony);}
+.rootline .trunk{stroke-width:2.35;}
+.rootline .trunk.thin{stroke-width:1.25;opacity:.8;}
+.rootline .twig{stroke-width:1.35;opacity:0;transition:opacity .5s ease, stroke-dashoffset 1.3s var(--ease-ceremony);}
 .rootline .twig.on{opacity:.85;}
-.rootline .tendril{stroke-width:1.9;opacity:0;transition:opacity .4s ease, stroke-dashoffset 2s var(--ease-ceremony);}
+.rootline .tendril{stroke-width:1.7;opacity:0;transition:opacity .4s ease, stroke-dashoffset 2s var(--ease-ceremony);}
 .rootline .tendril.on{opacity:1;}
 .rootline .tip{fill:#FFF1C2;opacity:0;transition:opacity .4s ease;filter:drop-shadow(0 0 4px rgba(246,209,121,1)) drop-shadow(0 0 10px rgba(201,162,39,.9));}
 .rootline .tip.on{opacity:1;}
@@ -72,16 +80,19 @@ main{position:relative;}
 .rootline .knot.on{opacity:1;transform:none;}
 
 @media(max-width:620px){
-  .hero.home{padding-bottom:128px;}
-  .bridge{width:176%;}
+  .hero.home{padding-bottom:112px;}
+  .bridge{width:132%;}
+  .bridge .tree-l{transform-origin:150px 198px;transform:translateX(50px) scale(.9);}
+  .bridge .tree-r{transform-origin:1062px 198px;transform:translateX(-62px) scale(.9);}
   .bridge path{stroke-width:2.6;}
   .bridge path.tower,.bridge path.deck{stroke-width:3.6;}
   .bridge path.cable{stroke-width:1.9;}
-  .rootline .trunk{stroke-width:2.2;}
-  .rootline .tendril{stroke-width:1.7;}
+  .rootline .trunk{stroke-width:2;}
+  .rootline .trunk.thin{stroke-width:1.15;}
+  .rootline .tendril{stroke-width:1.55;}
 }
 @media(prefers-reduced-motion:reduce){
   .bridge path{stroke-dashoffset:0;}
-  .bridge circle,.hero.home .rays{opacity:1;}
+  .bridge circle,.bridge path.fill{opacity:1;}
   .reveal{transform:none;}
 }
