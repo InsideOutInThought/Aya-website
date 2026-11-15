@@ -167,7 +167,8 @@
      the two sides meet at the footer. It draws as the reader scrolls. */
   function roots(main,hero){
     var svg=svgEl('svg',{'class':'rootline','aria-hidden':'true'},main);
-    var strands=[],extras=[],knot=null,best=0,W=0,H=0,raf=0;
+    var strands=[],extras=[],knot=null,best=0,W=0,H=0,raf=0,stop=null;
+    var endEl=main.querySelector('[data-roots-end]');   /* a page can end the roots early */
     function rnd(seed){var s=seed;return function(){s=(s*9301+49297)%233280;return s/233280;};}
     function addStrand(d,cls,withTip){
       var p=svgEl('path',{d:d,'class':cls},svg),L=p.getTotalLength(),N=Math.ceil(L/12),map=[];
@@ -194,7 +195,8 @@
       var amp=Math.min(gx*.55,20);
       var r=Math.min(44,gx*1.3);
       var twigLen=Math.max(7,Math.min(gx-4,52));
-      var ys=hb-3,yEnd=H-60,cx=W/2;
+      stop=endEl?endEl.getBoundingClientRect().top-top:null;
+      var ys=hb-3,yEnd=stop!==null?stop-30:H-60,cx=W/2;
       var seams=[];
       Array.prototype.forEach.call(main.children,function(c){
         if(c===svg||c===hero) return;
@@ -222,12 +224,20 @@
           });
           var h2=(yEnd-py)*.45;
           d+=' C'+X(x)+' '+(py+h2)+' '+X(gx)+' '+(yEnd-h2)+' '+X(gx)+' '+yEnd;
-          if(full) d+=' C'+X(gx)+' '+(H-4)+' '+cx+' '+(yEnd+6)+' '+cx+' '+H;
+          if(full&&stop===null) d+=' C'+X(gx)+' '+(H-4)+' '+cx+' '+(yEnd+6)+' '+cx+' '+H;
+          else if(full){   /* the root ends in a small fern curl */
+            var ex=gx+13,Rr=8,cy2=yEnd+22-Rr;
+            d+=' C'+X(gx)+' '+(yEnd+12)+' '+X(gx+4)+' '+(yEnd+22)+' '+X(ex)+' '+(yEnd+22);
+            for(var th=.25;th<=3.3*Math.PI;th+=.25){
+              var rr=Rr*(1-th/(3.3*Math.PI*1.08)),a3=Math.PI/2-th;
+              d+=' L'+X(ex+rr*Math.cos(a3)).toFixed(1)+' '+(cy2+rr*Math.sin(a3)).toFixed(1);
+            }
+          }
           return addStrand(d,full?'trunk':'trunk thin');
         }
         strand(-1,false);
         var a=strand(1,true);
-        a.tip=svgEl('circle',{'class':'tip',r:3.6},svg);
+        a.tip=svgEl('circle',{'class':'tip',r:2.6},svg);
         /* rootlets */
         var py=ys+r;
         nodes.forEach(function(n){
@@ -251,7 +261,7 @@
           addExtra(d,'tendril',yS-40);
         });
       });
-      knot=svgEl('circle',{'class':'knot',cx:cx,cy:H,r:5},svg);
+      knot=stop===null?svgEl('circle',{'class':'knot',cx:cx,cy:H,r:3.5},svg):null;
     }
     function lenAtY(s,y){
       var i=0;while(i<s.N&&s.map[i+1]<=y) i++;
