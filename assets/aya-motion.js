@@ -80,11 +80,6 @@
     }
     tree(96,.7,41,false,2.1);
     tree(1112,.62,97,true,2.4);
-    /* wings */
-    [[560,62,10],[602,46,12],[650,66,8],[700,40,7]].forEach(function(b,i){
-      var x=b[0],y=b[1],w=b[2];
-      pa('M'+(x-w)+' '+y+'Q'+(x-w/2)+' '+(y-w*.75)+' '+x+' '+y+'Q'+(x+w/2)+' '+(y-w*.75)+' '+(x+w)+' '+y,4+i*.25,'bird');
-    });
     hero.insertBefore(s,hero.firstChild);
   }
 
