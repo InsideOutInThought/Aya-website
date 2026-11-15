@@ -78,8 +78,8 @@
         add('M'+P(gx-5,0)+' Q'+P(gx-4,7)+' '+P(gx-8,12)+' M'+P(gx,0)+' L'+P(gx,14)+' M'+P(gx+5,0)+' Q'+P(gx+4,7)+' '+P(gx+9,11),1.9+j*.05,'grass');
       });
     }
-    tree(150,1.18,41,false,2.1);
-    tree(1062,1.04,97,true,2.4);
+    tree(96,.7,41,false,2.1);
+    tree(1112,.62,97,true,2.4);
     /* wings */
     [[560,62,10],[602,46,12],[650,66,8],[700,40,7]].forEach(function(b,i){
       var x=b[0],y=b[1],w=b[2];
@@ -96,17 +96,21 @@
     c.className='motes';c.setAttribute('aria-hidden','true');
     hero.insertBefore(c,hero.firstChild);
     var rich=hero.classList.contains('home');
-    var ctx=c.getContext('2d'),W=0,H=0,ms=[],gl=[],on=true,raf=0,last=0,keep=null;
+    var ctx=c.getContext('2d'),W=0,H=0,ms=[],gl=[],on=true,raf=0,last=0,keep=[];
     function make(anywhere){
       return {x:Math.random()*W,y:anywhere?Math.random()*H:H+12,r:.8+Math.random()*2.2,
         vy:6+Math.random()*16,sway:8+Math.random()*26,ph:Math.random()*6.28,
         tw:.4+Math.random()*1,a:.3+Math.random()*.6};
     }
+    function blocked(x,y){
+      for(var i=0;i<keep.length;i++){var k=keep[i];if(x>k.l&&x<k.r&&y>k.t&&y<k.b) return true;}
+      return false;
+    }
     /* glints: four-point sparkles that bloom and fade in place */
     function glint(t0){
       var x,y,tries=0;
       do{x=Math.random()*W;y=Math.random()*H;}
-      while(keep&&x>keep.l&&x<keep.r&&y>keep.t&&y<keep.b&&++tries<12);
+      while(blocked(x,y)&&++tries<40);
       return {x:x,y:y,t0:t0,dur:1400+Math.random()*2200,s:5+Math.random()*9};
     }
     function drawGlint(q,t){
@@ -126,12 +130,13 @@
       c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
       var n=Math.round(Math.min(72,Math.max(26,W/20))*(rich?1.7:1));
       ms=[];for(var i=0;i<n;i++) ms.push(make(true));
-      gl=[];keep=null;
-      var logo=hero.querySelector('.hero-logo');
-      if(logo){   /* four-point sparkles never land on the logo; the round motes still drift across it */
-        var lr=logo.getBoundingClientRect(),cr=c.getBoundingClientRect(),pad=26;
-        keep={l:lr.left-cr.left-pad,r:lr.right-cr.left+pad,t:lr.top-cr.top-pad,b:lr.bottom-cr.top+pad};
-      }
+      gl=[];keep=[];
+      /* four-point sparkles never land on the logo or the words; the round motes still drift across */
+      var cr=c.getBoundingClientRect(),pad=18;
+      Array.prototype.forEach.call(hero.querySelectorAll('.wrap > *'),function(el){
+        var r=el.getBoundingClientRect();
+        if(r.width&&r.height) keep.push({l:r.left-cr.left-pad,r:r.right-cr.left+pad,t:r.top-cr.top-pad,b:r.bottom-cr.top+pad});
+      });
       if(rich){var g=Math.round(Math.min(30,Math.max(14,W/50)));for(i=0;i<g;i++) gl.push(glint(performance.now()-Math.random()*3000));}
     }
     function frame(t){
