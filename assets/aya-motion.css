@@ -1,6 +1,5 @@
 /* Aya motion layer: shared by every page. Pairs with aya-motion.js. */
 
-@keyframes ayaSheenLoop{0%{background-position:120% 0}45%,100%{background-position:-20% 0}}
 @keyframes ayaDraw{to{stroke-dashoffset:0}}
 @keyframes ayaTurn{to{transform:rotate(360deg)}}
 
@@ -14,7 +13,6 @@
 .hero-logo{width:min(300px,62vw);}
 .hero.home .halo{top:calc(126px + min(300px,62vw)*.5);width:min(600px,110%);height:min(600px,110%);}
 .hero.home .city{text-shadow:0 0 46px rgba(246,209,121,.28);}
-.hero.home .opening{animation:ayaRise .8s ease 2.2s both, ayaSheenLoop 5.5s ease 2.8s infinite;}
 .bridge{position:absolute;left:50%;bottom:0;width:min(1400px,100%);height:auto;transform:translateX(-50%);z-index:1;pointer-events:none;overflow:visible;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 3%,#000 97%,rgba(0,0,0,0));mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 3%,#000 97%,rgba(0,0,0,0));}
 .bridge path{fill:none;stroke:var(--gold-light);stroke-width:1.7;stroke-linecap:round;opacity:.85;stroke-dasharray:1;stroke-dashoffset:1;animation:ayaDraw 1.7s var(--ease-ceremony) forwards;animation-delay:calc(2.7s + var(--d,0s));}
 .bridge path.tower{stroke-width:2.6;opacity:1;}
