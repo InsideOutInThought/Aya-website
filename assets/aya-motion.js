@@ -318,7 +318,7 @@
     Array.prototype.forEach.call(heroes,motes);
     Array.prototype.forEach.call(document.querySelectorAll('.statement,.buyband'),stage);
     var hero=main&&main.querySelector('.hero');
-    if(main&&hero) roots(main,hero);
+    if(main&&hero&&!main.hasAttribute('data-no-roots')) roots(main,hero);   /* a page can opt out */
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
