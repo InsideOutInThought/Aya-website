@@ -194,7 +194,7 @@
       <a href="/">Home</a>
       <a href="aya-small-bloom.html" aria-current="page">Small Blooms</a>
       <a href="aya-refer.html">Referrals</a>
-      <a href="#news">Follow Along</a>
+      <a href="aya-follow.html">Follow Along</a>
     </nav>
   </div>
 </header>
@@ -460,15 +460,16 @@
         <p>Be part of the journey. Get updates on My Small Bloom Reflections, the companion card deck, program news, and our Jacksonville opening. Your email stays with us.</p>
       </div>
     </div>
-    <form name="opening-news" method="POST" action="/aya-welcome" data-netlify="true" netlify-honeypot="bot-field">
+    <form name="opening-news" method="POST" action="/aya-welcome" data-netlify="true" netlify-honeypot="website" data-netlify-recaptcha="true">
       <input type="hidden" name="form-name" value="opening-news">
       <input type="hidden" name="subject" data-remove-prefix value="Aya &middot; Opening news signup">
-      <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="website" type="text" tabindex="-1" autocomplete="off"></label></p>
       <label class="sr-only" for="news-email">Your email address</label>
       <div class="row">
         <input id="news-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required>
         <button class="btn btn-gold" type="submit">Subscribe <span class="arr" aria-hidden="true">&rarr;</span></button>
       </div>
+      <div class="captcha" data-netlify-recaptcha="true"></div>
       <p class="note">Thoughtful updates, delivered occasionally.</p>
     </form>
   </div>
@@ -486,7 +487,7 @@
         <a href="/">Home</a>
         <a href="aya-small-bloom.html">My Small Bloom Reflections</a>
         <a href="aya-refer.html">For referral partners</a>
-        <a href="/#news">Opening news</a>
+        <a href="aya-follow.html">Follow along</a>
       </nav>
     </div>
     <div class="reach">

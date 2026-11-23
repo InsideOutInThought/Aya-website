@@ -183,6 +183,7 @@ header{position:sticky;top:0;z-index:50;background:var(--forest-deep);border-bot
 .news input[type=email]{flex:1 1 240px;min-width:0;font-family:var(--sans);font-size:1rem;padding:14px 16px;border-radius:10px;border:1.5px solid rgba(255,255,255,.55);background:rgba(255,255,255,.06);color:#fff;}
 .news input[type=email]::placeholder{color:rgba(255,255,255,.6);}
 .news input[type=email]:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);}
+.news .captcha{margin-top:14px;min-height:78px;}
 .news .note{margin:10px 0 0;font-family:var(--serif);font-style:italic;font-size:1.02rem;color:rgba(255,255,255,.75);}
 .hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden;}
 .news .leaf-a{position:absolute;left:-40px;bottom:-50px;width:170px;opacity:.85;z-index:1;pointer-events:none;}
