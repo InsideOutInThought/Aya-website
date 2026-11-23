@@ -92,7 +92,7 @@
 
   /* card deck */
   .deck{background:var(--cream);padding:80px 0;border-top:1px solid rgba(212,166,42,.35);}
-  .deck .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;}
+  .deck .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center;}
   .deck .art{border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(13,43,29,.22);}
   .deck .art svg{display:block;width:100%;height:auto;}
   .deck .copy{border-left:2px solid var(--gold);padding-left:36px;}
@@ -208,11 +208,13 @@
       <p class="lead">Reflection resources for healing, growth, and a deeper sense of belonging, made for women in recovery and the communities that support them.</p>
     </div>
     <div class="scene">
-      <svg viewBox="0 0 560 360" role="img" aria-label="An illustration of a warm cup of tea with a woven pattern, steam rising, beside a red hibiscus and green leaves on a wooden table.">
+      <svg viewBox="0 0 560 360" role="img" aria-label="An illustration of a jade cup of green tea painted with a small gold fern, steam rising, beside a red hibiscus and green leaves on a wooden table.">
         <defs>
           <radialGradient id="warm" cx=".55" cy=".45" r=".6"><stop offset="0" stop-color="#FFD98C" stop-opacity=".55"/><stop offset="1" stop-color="#FFD98C" stop-opacity="0"/></radialGradient>
           <linearGradient id="table" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9A6234"/><stop offset="1" stop-color="#5A3518"/></linearGradient>
-          <linearGradient id="cup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9C5A26"/><stop offset=".45" stop-color="#D99A4E"/><stop offset="1" stop-color="#8A4A1E"/></linearGradient>
+          <linearGradient id="cup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6B52"/><stop offset=".42" stop-color="#7FB89A"/><stop offset="1" stop-color="#245A44"/></linearGradient>
+          <radialGradient id="greentea" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#C9D86A"/><stop offset="1" stop-color="#7E9A2E"/></radialGradient>
+          <linearGradient id="saucer" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6B52"/><stop offset=".5" stop-color="#6FA78A"/><stop offset="1" stop-color="#245A44"/></linearGradient>
           <pattern id="cupweave" width="18" height="16" patternUnits="userSpaceOnUse"><path d="M0 12 9 4 18 12" fill="none" stroke="#2A1A10" stroke-width="2.4"/><path d="M9 10 11 12 9 14 7 12Z" fill="#2A1A10"/></pattern>
           <pattern id="throw" width="22" height="20" patternUnits="userSpaceOnUse"><rect width="22" height="20" fill="#2A1A10"/><path d="M0 10 11 2 22 10 11 18Z" fill="none" stroke="#D4A62A" stroke-width="2.2"/><path d="M11 7 14 10 11 13 8 10Z" fill="#D4A62A"/></pattern>
         </defs>
@@ -221,15 +223,30 @@
         <path d="M0 270Q280 250 560 268V360H0Z" fill="url(#table)"/>
         <path d="M0 270Q280 250 560 268" stroke="#C88A50" stroke-width="2" fill="none" opacity=".6"/>
         <g transform="translate(250 130)">
-          <ellipse cx="80" cy="140" rx="96" ry="12" fill="#2A1A10" opacity=".35"/>
-          <path d="M0 10H160L146 130Q140 146 120 146H40Q20 146 14 130Z" fill="url(#cup)"/>
-          <path d="M6 44H154L150 84H10Z" fill="url(#cupweave)" opacity=".75"/>
-          <path d="M5 40H155M10 88H150" stroke="#2A1A10" stroke-width="2.4" opacity=".7"/>
-          <ellipse cx="80" cy="10" rx="80" ry="11" fill="#B9763A"/>
-          <ellipse cx="80" cy="12" rx="70" ry="7" fill="#3A1F0C"/>
+          <ellipse cx="80" cy="150" rx="110" ry="14" fill="#2A1A10" opacity=".35"/>
+          <ellipse cx="80" cy="144" rx="104" ry="13" fill="url(#saucer)"/>
+          <ellipse cx="80" cy="141" rx="80" ry="8" fill="#3E7A5E" opacity=".5"/>
+          <path d="M0 10H160L148 120Q140 144 112 144H48Q20 144 12 120Z" fill="url(#cup)"/>
+          <path d="M156 36Q192 40 186 72 180 96 150 96" fill="none" stroke="url(#cup)" stroke-width="10" stroke-linecap="round"/>
+          <path d="M8 22H152" stroke="#D4A62A" stroke-width="2" opacity=".8"/>
+          <path d="M18 112H142" stroke="#D4A62A" stroke-width="1.6" opacity=".7"/>
+          <g transform="translate(80 98)" fill="#D4A62A" opacity=".9">
+            <path d="M0 0V-58" stroke="#D4A62A" stroke-width="1.8"/>
+            <ellipse cx="-9" cy="-12" rx="10" ry="3" transform="rotate(-25 -9 -12)"/><ellipse cx="9" cy="-16" rx="10" ry="3" transform="rotate(25 9 -16)"/>
+            <ellipse cx="-8" cy="-26" rx="9" ry="2.8" transform="rotate(-28 -8 -26)"/><ellipse cx="8" cy="-30" rx="9" ry="2.8" transform="rotate(28 8 -30)"/>
+            <ellipse cx="-6" cy="-40" rx="7" ry="2.4" transform="rotate(-32 -6 -40)"/><ellipse cx="6" cy="-44" rx="7" ry="2.4" transform="rotate(32 6 -44)"/>
+            <ellipse cx="0" cy="-58" rx="2.4" ry="5"/>
+          </g>
+          <ellipse cx="80" cy="10" rx="80" ry="11" fill="#E9D58A"/>
+          <ellipse cx="80" cy="12" rx="72" ry="7.5" fill="url(#greentea)"/>
+          <ellipse cx="62" cy="11" rx="20" ry="2.4" fill="#F4F1C8" opacity=".45"/>
           <g class="steam" stroke="#FFF1D2" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7">
             <path d="M52 -6q-12-22 4-44t2-44"/><path d="M80 -6q-12-22 4-44t2-44"/><path d="M108 -6q-12-22 4-44t2-44"/>
           </g>
+        </g>
+        <g transform="translate(470 290)">
+          <use href="#leaf" width="44" height="16" transform="rotate(-20)"/>
+          <use href="#leaf" width="38" height="14" transform="translate(30 4) rotate(25)"/>
         </g>
         <use href="#leaf" width="210" height="80" transform="translate(60 250) rotate(-28)"/>
         <use href="#leaf" width="180" height="70" transform="translate(100 290) rotate(-5)"/>
@@ -332,32 +349,72 @@
 <section class="deck" id="deck">
   <div class="wrap">
     <div class="art reveal">
-      <svg viewBox="0 0 640 380" role="img" aria-label="An illustration of the Small Blooms card deck: a green box with the gold Aya fern beside fanned cream cards reading Breathe, If today is hard, Reflection, and Crisis Resources.">
+      <svg viewBox="0 0 780 380" role="img" aria-label="An illustration of the Small Blooms card deck: a green box with the gold Aya fern beside fanned cards: the Small Blooms title card, How to use this deck, If today is hard with crisis numbers, and a Breathe pause card.">
         <defs>
           <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B67A44"/><stop offset="1" stop-color="#6B3E1F"/></linearGradient>
           <radialGradient id="deckglow" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#FFE3A8" stop-opacity=".45"/><stop offset="1" stop-color="#FFE3A8" stop-opacity="0"/></radialGradient>
           <filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#2A1A10" flood-opacity=".4"/></filter>
         </defs>
-        <rect width="640" height="380" fill="url(#wood)"/>
-        <rect width="640" height="380" fill="url(#deckglow)"/>
-        <g opacity=".85"><use href="#leaf" width="200" height="76" transform="translate(-60 380) rotate(-40)"/><use href="#leaf" width="180" height="70" transform="translate(700 340) rotate(210)"/></g>
+        <rect width="780" height="380" fill="url(#wood)"/>
+        <rect width="780" height="380" fill="url(#deckglow)"/>
+        <g opacity=".85"><use href="#leaf" width="200" height="76" transform="translate(-60 380) rotate(-40)"/><use href="#leaf" width="180" height="70" transform="translate(840 340) rotate(210)"/></g>
         <g filter="url(#sh)">
-          <rect x="40" y="70" width="170" height="240" rx="10" fill="#143A28"/>
-          <rect x="52" y="82" width="146" height="216" rx="6" fill="none" stroke="#D4A62A" stroke-width="2"/>
-          <image href="assets/aya-fern.png" x="85" y="120" width="80" height="140" preserveAspectRatio="xMidYMid meet"/>
+          <rect x="22" y="70" width="170" height="240" rx="10" fill="#143A28"/>
+          <rect x="34" y="82" width="146" height="216" rx="4" fill="none" stroke="#D4A62A" stroke-width="1.4"/>
+          <image href="assets/aya-fern.png" x="67" y="112" width="80" height="140" preserveAspectRatio="xMidYMid meet"/>
+          <text x="107" y="282" font-family="Cormorant Garamond, Georgia, serif" font-size="13" letter-spacing="4" fill="#D4A62A" text-anchor="middle">AYA</text>
         </g>
-        <g font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="20" fill="#2B2B2B" text-anchor="middle" transform="translate(-34 0)">
-          <g filter="url(#sh)" transform="rotate(-8 300 200)"><rect x="236" y="80" width="128" height="200" rx="8" fill="#FBF4E8"/><rect x="244" y="88" width="112" height="184" rx="5" fill="none" stroke="#D4A62A" stroke-width="1.2"/><text x="300" y="150">Breathe.</text><path d="M272 196q14-8 28 0t28 0M276 210q12-7 24 0t24 0" stroke="#D4A62A" stroke-width="2" fill="none"/></g>
-          <g filter="url(#sh)" transform="rotate(-2 400 200)"><rect x="336" y="76" width="128" height="200" rx="8" fill="#FBF4E8"/><rect x="344" y="84" width="112" height="184" rx="5" fill="none" stroke="#D4A62A" stroke-width="1.2"/><text x="400" y="140">If today</text><text x="400" y="170">is hard.</text><path d="M400 228V200M400 214c-6-8-14-8-16-4 4 6 10 6 16 4ZM400 210c6-8 14-8 16-4-4 6-10 6-16 4Z" stroke="#D4A62A" stroke-width="1.8" fill="none"/></g>
-          <g filter="url(#sh)" transform="rotate(5 500 205)"><rect x="436" y="82" width="128" height="200" rx="8" fill="#FBF4E8"/><rect x="444" y="90" width="112" height="184" rx="5" fill="none" stroke="#D4A62A" stroke-width="1.2"/><text x="500" y="150">Reflection</text><path d="M500 232V204M500 220c-8-10-18-10-20-4 5 7 12 7 20 4ZM500 214c8-10 18-10 20-4-5 7-12 7-20 4Z" stroke="#D4A62A" stroke-width="1.8" fill="none"/></g>
-          <g filter="url(#sh)" transform="rotate(12 590 215)"><rect x="526" y="96" width="128" height="200" rx="8" fill="#FBF4E8"/><rect x="534" y="104" width="112" height="184" rx="5" fill="none" stroke="#D4A62A" stroke-width="1.2"/><text x="590" y="156">Crisis</text><text x="590" y="186">Resources</text><circle cx="590" cy="234" r="18" fill="none" stroke="#D4A62A" stroke-width="2"/><path d="M582 226h5l2 5-3 2a10 10 0 0 0 5 5l2-3 5 2v5a2 2 0 0 1-2 2 18 18 0 0 1-16-16 2 2 0 0 1 2-2Z" fill="#D4A62A"/></g>
+        <g text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif">
+          <g filter="url(#sh)" transform="translate(212 92) rotate(-5 66 100)">
+            <rect width="132" height="200" rx="7" fill="#FFFDF8"/>
+            <image href="assets/aya-fern.png" x="46" y="24" width="40" height="64" preserveAspectRatio="xMidYMid meet"/>
+            <text x="66" y="116" font-size="12.5" letter-spacing="2.6" fill="#2B2B2B">SMALL BLOOMS</text>
+            <path d="M50 126H63M69 126H82" stroke="#D4A62A" stroke-width="1"/><circle cx="66" cy="126" r="1.2" fill="#D4A62A"/>
+            <text x="66" y="142" font-size="9.5" font-style="italic" fill="#2F6B3F">A Practice for Self-Discovery</text>
+            <text x="66" y="178" font-family="Nunito Sans, sans-serif" font-size="5.2" fill="#6b6b6b">Fifty reflections &#183; Five pause cards</text>
+            <text x="66" y="187" font-family="Nunito Sans, sans-serif" font-size="4.4" letter-spacing="1.2" fill="#C9A227">AYA RECOVERY &amp; WELLNESS</text>
+          </g>
+          <g filter="url(#sh)" transform="translate(352 84) rotate(-1.5 66 100)">
+            <rect width="132" height="200" rx="7" fill="#FFFDF8"/>
+            <text x="66" y="30" font-family="Nunito Sans, sans-serif" font-size="5" letter-spacing="1.6" fill="#C9A227">HOW TO USE THIS DECK</text>
+            <text x="66" y="62" font-size="12" fill="#2B2B2B">Shuffle. Draw one.</text>
+            <text x="66" y="77" font-size="12" fill="#2B2B2B">That is the practice.</text>
+            <g fill="#C8C2B6"><rect x="24" y="94" width="84" height="2" rx="1"/><rect x="34" y="100" width="64" height="2" rx="1"/><rect x="22" y="112" width="88" height="2" rx="1"/><rect x="36" y="118" width="60" height="2" rx="1"/><rect x="20" y="130" width="92" height="2" rx="1"/><rect x="30" y="136" width="72" height="2" rx="1"/><rect x="22" y="148" width="88" height="2" rx="1"/><rect x="34" y="154" width="64" height="2" rx="1"/></g>
+            <path d="M52 170H63M69 170H80" stroke="#D4A62A" stroke-width="1"/><circle cx="66" cy="170" r="1.2" fill="#D4A62A"/>
+            <image href="assets/aya-fern.png" x="61" y="178" width="10" height="14" preserveAspectRatio="xMidYMid meet" opacity=".7"/>
+          </g>
+          <g filter="url(#sh)" transform="translate(492 84) rotate(1.5 66 100)">
+            <rect width="132" height="200" rx="7" fill="#FFFDF8"/>
+            <text x="66" y="28" font-family="Nunito Sans, sans-serif" font-size="5" letter-spacing="1.6" fill="#C9A227">IF TODAY IS HARD</text>
+            <text x="66" y="46" font-size="8.6" fill="#2B2B2B">This deck is a quiet place to think.</text>
+            <text x="66" y="57" font-size="8.6" fill="#2B2B2B">It is not a crisis service.</text>
+            <g font-family="Nunito Sans, sans-serif">
+              <text x="66" y="80" font-size="11" font-weight="700" fill="#143A28">988</text>
+              <text x="66" y="89" font-size="5.4" fill="#2F6B3F">Suicide and Crisis Lifeline</text>
+              <text x="66" y="110" font-size="10" font-weight="700" fill="#143A28">1-800-662-4357</text>
+              <text x="66" y="119" font-size="5.4" fill="#2F6B3F">SAMHSA National Helpline</text>
+              <text x="66" y="140" font-size="11" font-weight="700" fill="#143A28">911</text>
+              <text x="66" y="149" font-size="5.4" fill="#2F6B3F">Emergency</text>
+            </g>
+            <text x="66" y="170" font-size="6.6" font-style="italic" fill="#4A7A63">Many states give legal protection to a person</text>
+            <text x="66" y="179" font-size="6.6" font-style="italic" fill="#4A7A63">who calls for help during an overdose.</text>
+          </g>
+          <g filter="url(#sh)" transform="translate(632 92) rotate(5 66 100)">
+            <rect width="132" height="200" rx="7" fill="#F5F1E6"/>
+            <text x="66" y="28" font-family="Nunito Sans, sans-serif" font-size="5" letter-spacing="1.6" fill="#C9A227">PAUSE CARD</text>
+            <image href="assets/aya-fern.png" x="52" y="38" width="28" height="46" preserveAspectRatio="xMidYMid meet"/>
+            <text x="66" y="118" font-size="22" fill="#143A28">Breathe.</text>
+            <path d="M52 130H63M69 130H80" stroke="#D4A62A" stroke-width="1"/><circle cx="66" cy="130" r="1.2" fill="#D4A62A"/>
+            <text x="66" y="148" font-size="8" font-style="italic" fill="#4A7A63">Four counts in. Six counts out.</text>
+            <text x="66" y="159" font-size="8" font-style="italic" fill="#4A7A63">Three times.</text>
+          </g>
         </g>
       </svg>
     </div>
     <div class="copy reveal">
       <p class="eyebrow ink">The companion resource</p>
       <h2>The Small Blooms Reflection Card Deck</h2>
-      <p class="body">A companion to My Small Bloom Reflections, designed around moments of reflection, pause, support, and personal connection.</p>
+      <p class="body">A companion to My Small Bloom Reflections, designed around moments of reflection, pause, support, and personal connection. Fifty reflections and five pause cards. Shuffle, draw one, and that is the practice.</p>
       <span class="pill">Available soon</span>
     </div>
   </div>
