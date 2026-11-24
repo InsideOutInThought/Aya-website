@@ -47,8 +47,8 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="Aya Recovery and Wellness home">
-      <img class="badge" src="assets/aya-fern.png" alt="" aria-hidden="true">
-      <span class="words"><span class="name">Aya Recovery &amp; Wellness</span><span class="tag">Heal. Grow. Return. Together.</span></span>
+      <img class="badge" src="assets/aya-fern-on-dark.png" width="269" height="480" alt="" aria-hidden="true">
+      <span class="words"><img class="name" src="assets/aya-wordmark.png" width="1332" height="89" alt="Aya Recovery &amp; Wellness"><span class="tag">Heal. Grow. Return. <span class="tag-gold">Together.</span></span></span>
     </a>
     <nav class="menu" aria-label="Main">
       <a href="/" aria-current="page">Home</a>
@@ -253,30 +253,6 @@
     <article class="door reveal">
       <div class="art">
         <svg viewBox="0 0 360 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="360" height="190" fill="#1D4B33"/>
-          <circle cx="180" cy="100" r="74" fill="#F4D57E" opacity=".12"/>
-          <g transform="translate(180 178)">
-            <path d="M0 0C-4-50 2-110 10-160" stroke="#8CC46A" stroke-width="3" fill="none"/>
-            <g fill="url(#lf2)">
-              <ellipse cx="-24" cy="-30" rx="26" ry="7" transform="rotate(-20 -24 -30)"/><ellipse cx="26" cy="-38" rx="26" ry="7" transform="rotate(20 26 -38)"/>
-              <ellipse cx="-20" cy="-62" rx="23" ry="6.5" transform="rotate(-24 -20 -62)"/><ellipse cx="26" cy="-70" rx="23" ry="6.5" transform="rotate(22 26 -70)"/>
-              <ellipse cx="-14" cy="-94" rx="19" ry="5.5" transform="rotate(-28 -14 -94)"/><ellipse cx="26" cy="-102" rx="19" ry="5.5" transform="rotate(26 26 -102)"/>
-              <ellipse cx="-6" cy="-124" rx="15" ry="4.5" transform="rotate(-32 -6 -124)"/><ellipse cx="22" cy="-132" rx="15" ry="4.5" transform="rotate(30 22 -132)"/>
-              <ellipse cx="10" cy="-156" rx="9" ry="4" transform="rotate(-70 10 -156)"/>
-            </g>
-          </g>
-          <g opacity=".55"><use href="#leaf" width="160" height="60" transform="translate(-30 30) rotate(20)"/><use href="#leaf" width="150" height="56" transform="translate(390 60) rotate(160)"/></g>
-        </svg>
-      </div>
-      <div class="body">
-        <h3>The Origins of Aya</h3>
-        <p>Rooted in Ghanaian heritage. Inspired by the fern.</p>
-        <a class="btn btn-line" href="#origins">Our heritage <span class="arr" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </article>
-    <article class="door reveal">
-      <div class="art">
-        <svg viewBox="0 0 360 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="360" height="190" fill="#3A2412"/>
           <circle cx="220" cy="70" r="90" fill="#FFD27A" opacity=".18"/>
           <rect y="140" width="360" height="50" fill="#6B3E1F"/>
@@ -285,12 +261,26 @@
             <rect x="0" y="-8" width="150" height="6" rx="2" fill="#143A28"/>
             <image href="assets/aya-fern.png" x="62" y="4" width="26" height="26"/>
           </g>
-          <g transform="translate(250 86)">
-            <path d="M0 0H60L54 56H6Z" fill="#C98A3B"/>
-            <path d="M3 14H57M5 28H55M6 42H54" stroke="#3A2412" stroke-width="2" opacity=".6"/>
-            <path d="M8 21l6-5 6 5 6-5 6 5 6-5 6 5 6-5 6 5" stroke="#3A2412" stroke-width="1.6" fill="none" opacity=".6"/>
-            <ellipse cx="30" cy="1" rx="30" ry="5" fill="#2A1A10"/>
-            <path d="M22-6q-6-12 2-22M32-6q-6-12 2-22M42-6q-6-12 2-22" stroke="#FFF1D2" stroke-width="2" fill="none" opacity=".55"/>
+          <defs>
+            <linearGradient id="hcup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6B52"/><stop offset=".42" stop-color="#7FB89A"/><stop offset="1" stop-color="#245A44"/></linearGradient>
+            <radialGradient id="htea" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#C9D86A"/><stop offset="1" stop-color="#7E9A2E"/></radialGradient>
+            <linearGradient id="hsaucer" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6B52"/><stop offset=".5" stop-color="#6FA78A"/><stop offset="1" stop-color="#245A44"/></linearGradient>
+          </defs>
+          <g transform="translate(246 86) scale(.38)">
+            <ellipse cx="80" cy="150" rx="110" ry="14" fill="#2A1A10" opacity=".35"/>
+            <ellipse cx="80" cy="144" rx="104" ry="13" fill="url(#hsaucer)"/>
+            <ellipse cx="80" cy="141" rx="80" ry="8" fill="#3E7A5E" opacity=".5"/>
+            <path d="M0 10H160L148 120Q140 144 112 144H48Q20 144 12 120Z" fill="url(#hcup)"/>
+            <path d="M156 36Q192 40 186 72 180 96 150 96" fill="none" stroke="url(#hcup)" stroke-width="10" stroke-linecap="round"/>
+            <path d="M8 22H152" stroke="#D4A62A" stroke-width="2" opacity=".8"/>
+            
+            <g aria-hidden="true"><path d="M57 114V64A23 23 0 0 1 103 64V114Z" fill="none" stroke="#E9BE48" stroke-width="2.6"/><image href="assets/aya-fern-hd.png" x="63" y="50" width="34" height="60" preserveAspectRatio="xMidYMid meet"/></g>
+            <ellipse cx="80" cy="10" rx="80" ry="11" fill="#E9D58A"/>
+            <ellipse cx="80" cy="12" rx="72" ry="7.5" fill="url(#htea)"/>
+            <ellipse cx="62" cy="11" rx="20" ry="2.4" fill="#F4F1C8" opacity=".45"/>
+            <g stroke="#FFF1D2" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7">
+              <path d="M52 -6q-12-22 4-44t2-44"/><path d="M80 -6q-12-22 4-44t2-44"/><path d="M108 -6q-12-22 4-44t2-44"/>
+            </g>
           </g>
           <g transform="translate(40 52) scale(.7)">
             <g fill="#E23A5C"><ellipse rx="22" ry="14" cx="20"/><ellipse rx="22" ry="14" cx="20" transform="rotate(72)"/><ellipse rx="22" ry="14" cx="20" transform="rotate(144)"/><ellipse rx="22" ry="14" cx="20" transform="rotate(216)"/><ellipse rx="22" ry="14" cx="20" transform="rotate(288)"/></g>
@@ -331,10 +321,13 @@
 
 <section class="paths">
   <div class="wrap">
-    <div class="head reveal">
-      <p class="eyebrow ink">While we build</p>
-      <h2>Roots &amp; Wings is on its way</h2>
-      <p>We are preparing a home in Jacksonville for women in recovery, and our doors open in Fall 2027. Until then, we are listening to the providers, families, and neighbors who will shape it.</p>
+    <div class="rw-intro">
+      <div class="head reveal">
+        <p class="eyebrow ink">While we build</p>
+        <h2>Roots &amp; Wings is on its way</h2>
+        <p>We are preparing a home in Jacksonville for women in recovery, and our doors open in Fall 2027. Until then, we are listening to the providers, families, and neighbors who will shape it.</p>
+      </div>
+      <img class="rw-logo reveal" src="assets/roots-wings-logo.jpg" width="960" height="960" alt="Roots &amp; Wings Residence by Aya Recovery &amp; Wellness. The gold Aya fern inside a gold arch. Heal. Grow. Return. Together. Jacksonville, Florida." loading="lazy">
     </div>
     <div class="grid reveal">
       <div class="path">
@@ -409,8 +402,8 @@
   <div class="wrap">
     <div class="top">
       <a class="brand" href="/">
-        <img class="badge" src="assets/aya-fern.png" alt="" aria-hidden="true">
-        <span class="words"><span class="name">Aya Recovery &amp; Wellness</span><span class="tag">Heal. Grow. Return. Together.</span></span>
+        <img class="badge" src="assets/aya-fern-on-dark.png" width="269" height="480" alt="" aria-hidden="true">
+        <span class="words"><img class="name" src="assets/aya-wordmark.png" width="1332" height="89" alt="Aya Recovery &amp; Wellness"><span class="tag">Heal. Grow. Return. <span class="tag-gold">Together.</span></span></span>
       </a>
       <nav class="fnav" aria-label="Footer">
         <a href="/">Home</a>
