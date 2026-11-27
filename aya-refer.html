@@ -49,6 +49,25 @@
   .glance > div.nofit{border-color:rgba(107,21,48,.35);}
   .glance > div.nofit .ic{background:var(--burgundy);}
   .glance > div.nofit dt{color:var(--burgundy);}
+  .glance > div{align-content:start;}
+  .glance dd strong{color:var(--charcoal);}
+  .glance dd p{margin:0;}
+  .glance dd .nofit-more{margin-top:10px;}
+
+  /* questions from partners */
+  .pq{margin-top:64px;}
+  .pq .ruletitle{margin-bottom:28px;}
+  .pq-item{max-width:860px;margin:0 auto;background:#fff;border:1px solid rgba(212,166,42,.35);border-radius:14px;box-shadow:0 8px 20px rgba(13,43,29,.05);}
+  .pq-item summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 24px;cursor:pointer;list-style:none;font-size:1.05rem;font-weight:800;line-height:1.4;color:var(--forest);border-radius:14px;}
+  .pq-item summary::-webkit-details-marker{display:none;}
+  .pq-item summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  .pq-item .chev{flex:none;width:22px;height:22px;color:var(--gold);transition:transform .25s ease;}
+  .pq-item[open] .chev{transform:rotate(180deg);}
+  .pq-item .pq-body{padding:0 24px 22px;color:var(--graphite);font-size:.98rem;line-height:1.65;}
+  .pq-item .pq-body p{margin:0 0 1em;}
+  .pq-item .pq-body strong{color:var(--charcoal);}
+  .pq-item .pq-body .pq-cite{margin:16px 0 0;padding-top:12px;border-top:1px solid rgba(212,166,42,.35);font-size:.8rem;font-weight:700;letter-spacing:.04em;color:#5e6b66;}
+  @media(prefers-reduced-motion:reduce){.pq-item .chev{transition:none;}}
 
   /* journey */
   .journey{position:relative;overflow:hidden;background:var(--forest);color:#fff;padding:70px 0 80px;}
@@ -142,6 +161,9 @@
     .glance > div{grid-template-columns:46px 1fr;padding:18px;}
     .glance .ic{width:46px;height:46px;}
     .glance .ic svg{width:22px;height:22px;}
+    .pq{margin-top:48px;}
+    .pq-item summary{padding:18px;font-size:1rem;}
+    .pq-item .pq-body{padding:0 18px 18px;}
     .steps{grid-template-columns:1fr;max-width:300px;}
     .commit ul{padding-left:20px;}
     .connect .formside,.connect .talkside{padding:52px 20px;}
@@ -387,9 +409,27 @@
       <div class="reveal nofit">
         <span class="ic" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="#F4D57E" stroke-width="1.8"><circle cx="14" cy="14" r="10"/><path d="M7 21 21 7"/></svg></span>
         <dt>Not a fit</dt>
-        <dd>Women who need detox or a higher level of care. Medical cannabis is prohibited on the premises under Florida law, and <b>active use is a disqualifying admission criterion</b>. That's a legal distinction, not a moral one.</dd>
+        <dd>
+          <p>Women who need detox or a higher level of care. Medical cannabis is prohibited on the premises under Florida law, even with a valid card, and <strong>active use is a disqualifying admission criterion</strong>. That's a legal distinction, not a moral one.</p>
+          <p class="nofit-more"><a class="textlink" href="#cannabis-and-mat">Why cannabis and MAT are treated differently</a></p>
+        </dd>
       </div>
     </dl>
+
+    <section class="pq" aria-labelledby="pq-title">
+      <div class="ruletitle reveal"><h2 id="pq-title">Questions from partners</h2></div>
+      <details class="pq-item reveal" id="cannabis-and-mat">
+        <summary>Why are medical cannabis and MAT treated differently?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="pq-body">
+          <p>Florida law requires every certified recovery residence to prohibit marijuana on the premises, and <strong>that includes marijuana certified for medical use</strong>. A valid card is not an exception.</p>
+          <p>We also ask that she not be using it when she arrives. Stopping abruptly just to get through the door doesn't set her up to succeed if she isn't ready on her own. Our standard is <strong>60 days substance-free at admission</strong>, and that includes medical cannabis. It never includes MAT.</p>
+          <p>MAT is a different thing entirely. Buprenorphine, methadone, and naltrexone are FDA-approved medications for substance use disorder, and Florida law says a certified residence <strong>may not deny her housing because she takes them</strong>. It is her treatment. It is never a relapse.</p>
+          <p>One is prescribed. The other is certified. That's the distinction.</p>
+          <p>Using medical cannabis now and ready to stop? <a class="textlink" href="tel:+19043723723">Call anyway</a>. We'll talk it through and time the referral with you.</p>
+          <p class="pq-cite">Florida Statutes &sect;397.487(3)(a)3 &middot; &sect;397.487(13)</p>
+        </div>
+      </details>
+    </section>
   </div>
 </section>
 
@@ -557,6 +597,33 @@
     if(still||!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
     var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
     els.forEach(function(el){io.observe(el);});
+  })();
+  (function(){
+    var q=document.getElementById('cannabis-and-mat');
+    if(!q)return;
+    var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function show(){
+      q.open=true;
+      q.classList.add('in');
+      var h=document.querySelector('header');
+      var y=0,el=q;
+      while(el){y+=el.offsetTop;el=el.offsetParent;}
+      y-=(h?h.offsetHeight:0)+16;
+      window.scrollTo({top:Math.max(0,y),behavior:still?'instant':'smooth'});
+      var s=q.querySelector('summary');
+      if(s)s.focus({preventScroll:true});
+    }
+    function fromHash(){if(location.hash==='#cannabis-and-mat')show();}
+    document.querySelectorAll('a[href="#cannabis-and-mat"]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        if(location.hash!=='#cannabis-and-mat'&&history.pushState)history.pushState(null,'','#cannabis-and-mat');
+        show();
+      });
+    });
+    window.addEventListener('hashchange',fromHash);
+    if(location.hash==='#cannabis-and-mat')q.open=true;
+    window.addEventListener('load',function(){setTimeout(fromHash,0);});
   })();
 </script>
 </body>
